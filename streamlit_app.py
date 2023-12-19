@@ -4,32 +4,17 @@ from llama_index.llms import OpenAI
 import openai
 
 # Set page configuration
-st.set_page_config(page_title="Chat with the Triangle ChatBot", page_icon="🔺", layout="centered", initial_sidebar_state="auto", menu_items=None)
-
-# Inject custom CSS with HTML
-st.markdown(f"""
-    <style>
-        header {{
-            background-color: #0e3745 !important;
-        }}
-        body {{
-            background-color: #808080;
-        }}
-        .stChatMessage {{
-            background-color: #990033;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 5px;
-        }}
-        .stTextInput, .stButton, .stSpinner {{
-            color: #FFFFFF;
-        }}
-    </style>
-""", unsafe_allow_html=True)
+st.set_page_config(
+    page_title="KU Triangle ChatBot",
+    page_icon="🔺",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items=None
+)
 
 # API key and title
 openai.api_key = st.secrets.openai_key
-st.title("Chat with the Triangle ChatBot")
+st.header("Chat with the KU Triangle ChatBot", divider='gray')
          
 # Initialize chat messages history
 if "messages" not in st.session_state.keys():
