@@ -14,7 +14,31 @@ st.set_page_config(
 
 # API key and title
 openai.api_key = st.secrets.openai_key
+
+# Custom CSS to center the title
+st.markdown(
+    """
+    <style>
+    .stHeadingContainer {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 st.header("Chat with the KU Triangle ChatBot &Delta;", divider='gray')
+
+# Custom CSS for the buttons
+st.markdown("""
+    <style>
+        .row-widget.stLinkButton a {
+            background-color: #0e3745;
+        }
+        .row-widget.stLinkButton a:hover {
+            background-color: #990033;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Social Media Links
 col1, col2, col3, col4, col5 = st.columns(5)
