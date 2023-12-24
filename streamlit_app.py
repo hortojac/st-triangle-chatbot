@@ -19,9 +19,9 @@ openai.api_key = st.secrets.openai_key
 st.markdown(
     """
     <style>
-    .stHeadingContainer {
-        text-align: center;
-    }
+        .stHeadingContainer {
+            text-align: center;
+        }
     </style>
     """,
     unsafe_allow_html=True,
