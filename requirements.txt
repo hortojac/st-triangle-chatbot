@@ -1,5 +1,7 @@
 streamlit
+streamlit-extras
 openai
 llama-index
 nltk
 docx2txt
+
