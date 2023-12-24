@@ -16,8 +16,7 @@ st.set_page_config(
 openai.api_key = st.secrets.openai_key
 
 # Custom CSS to center the title
-st.markdown(
-    """
+st.markdown("""
     <style>
         .stHeadingContainer {
             text-align: center;
