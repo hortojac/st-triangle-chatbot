@@ -15,6 +15,21 @@ st.set_page_config(
 # API key and title
 openai.api_key = st.secrets.openai_key
 
+# Custom CSS for the header
+st.markdown("""
+    <style>
+        [data-testid="stHeader"] {
+            background-color: #0e3745;
+            height: 5rem;
+            background-image: url("https://images.squarespace-cdn.com/content/v1/5edab77f1d34342bd8d942b6/6abeefe1-f357-4992-aa59-dcfe74c726b1/Logotype-Horiz.png?format=1500w");
+            background-repeat: no-repeat;
+            background-position: left 2rem center;  /* Adjusted position */
+            background-size: auto 4rem;  /* Auto width, 4rem height */
+        }
+    </style>
+    """, unsafe_allow_html=True,
+)
+
 # Custom CSS to center the title
 st.markdown("""
     <style>
@@ -22,8 +37,7 @@ st.markdown("""
             text-align: center;
         }
     </style>
-    """,
-    unsafe_allow_html=True,
+    """, unsafe_allow_html=True,
 )
 st.header("Chat with the KU Triangle ChatBot &Delta;", divider='gray')
 
@@ -37,7 +51,8 @@ st.markdown("""
             background-color: #990033;
         }
     </style>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True,
+)
 
 # Social Media Links
 col1, col2, col3, col4, col5 = st.columns(5)
