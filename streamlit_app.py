@@ -69,7 +69,7 @@ with col5:
     st.link_button(":moneybag: Donate", "https://www.paypal.com/donate/?hosted_button_id=AGBB3YBDR73NW", use_container_width=True)
 
 # Disclaimer and instructions
-st.markdown("**Disclaimer**: The information provided by this chatbot is based on the resources available to it and may not cover all aspects of your inquiry. If the response seems incomplete or unrelated to your question, it could be due to the limitations of the chatbot's current knowledge base. In such cases, consider rephrasing or specifying your question for more accurate assistance. For inquiries beyond the chatbot's scope, we recommend consulting the chapter's current Recruitment Chair.")
+st.markdown("**Disclaimer:** *This chatbot provides responses based on its accessible resources and knowledge base, which may not encompass all details relevant to your inquiry. If you receive an incomplete response or no information related to your question, it may be a result of the chatbot's current knowledge limitations. In such instances, try rewording or elaborating on your question for more precise assistance. For complex inquiries or topics beyond the chatbot's capacity, please consult the chapter's current Recruitment Chair for further guidance.*")
          
 # Initialize chat messages history
 if "messages" not in st.session_state.keys():
@@ -83,7 +83,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the data - hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on the Kansas Chapter of Triangle Fraternity and the National Fraternity Organization. Your job is to answer informative questions. Assume that all questions are related to the Kansas Chapter of Triangle or Nationals. Keep your answers informative and based on facts – do not hallucinate features."))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an expert on the Kansas Chapter of Triangle Fraternity and the National Triangle Fraternity Organization. Your job is to answer informative questions. Assume that all questions are related to the Kansas Chapter of Triangle or Nationals. Keep your answers informative and based on facts – do not hallucinate features."))
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
 
@@ -109,3 +109,29 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message)  # Add response to message history
+
+# Custom Footer
+st.markdown("""
+    <style>
+        .footer {
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: auto;
+        }
+    </style>
+    """, unsafe_allow_html=True,
+)
+
+# Add footer to the bottom of the page
+footer = """
+    <div class="footer">
+        &copy; Kansas Chapter of Triangle Fraternity
+    </div>
+    """
+st.markdown(footer, unsafe_allow_html=True)
+
+
