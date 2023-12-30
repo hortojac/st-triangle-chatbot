@@ -39,13 +39,14 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True,
 )
-st.header("Chat with the KU Triangle ChatBot &Delta;", divider='gray')
+st.header("Chat with the KU Triangle ChatBot", divider='gray')
 
 # Custom CSS for the buttons
 st.markdown("""
     <style>
         .row-widget.stLinkButton a {
             background-color: #0e3745;
+            width: 100%;
         }
         .row-widget.stLinkButton a:hover {
             background-color: #990033;
@@ -54,19 +55,25 @@ st.markdown("""
     """, unsafe_allow_html=True,
 )
 
-# Social Media Links
-col1, col2, col3, col4, col5 = st.columns(5)
+st.markdown("""
+    <style>
+        [data-testid="stSidebar"] {
+            text-align: center;
+        }
+    </style>
+    """, unsafe_allow_html=True,
+)
 
-with col1:
-    st.link_button(":globe_with_meridians: Website", "https://kutriangle.org", use_container_width=True)
-with col2:
-    st.link_button(":speech_balloon: Facebook", "https://www.facebook.com/KUTriangle", use_container_width=True)
-with col3:
-    st.link_button(":camera: Instagram", "https://www.instagram.com/kutriangle/", use_container_width=True)
-with col4:
-    st.link_button(":bird: Twitter", "https://twitter.com/KUTriangle", use_container_width=True)
-with col5:
-    st.link_button(":moneybag: Donate", "https://www.paypal.com/donate/?hosted_button_id=AGBB3YBDR73NW", use_container_width=True)
+# Social Media Links in the Sidebar
+with st.sidebar:
+    st.markdown("<u>Social Media Links</u>", unsafe_allow_html=True)
+    st.link_button(":speech_balloon: Facebook", "https://www.facebook.com/KUTriangle")
+    st.link_button(":camera: Instagram", "https://www.instagram.com/kutriangle/")
+    st.link_button(":bird: Twitter", "https://twitter.com/KUTriangle")
+    st.link_button(":globe_with_meridians: Website", "https://kutriangle.org")
+    st.link_button(":envelope: Contact Us", "https://www.kutriangle.org/contact")
+    st.link_button(":moneybag: Donate", "https://www.paypal.com/donate/?hosted_button_id=AGBB3YBDR73NW")
+    st.markdown("&copy; Kansas Chapter of Triangle Fraternity")
 
 # Disclaimer and instructions
 st.markdown("**Disclaimer:** *This chatbot provides responses based on its accessible resources and knowledge base, which may not encompass all details relevant to your inquiry. If you receive an incomplete response or no information related to your question, it may be a result of the chatbot's current knowledge limitations. In such instances, try rewording or elaborating on your question for more precise assistance. For complex inquiries or topics beyond the chatbot's capacity, please consult the chapter's current Recruitment Chair for further guidance.*")
@@ -109,29 +116,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message)  # Add response to message history
-
-# Custom Footer
-st.markdown("""
-    <style>
-        .footer {
-            color: #FFFFFF;
-            font-size: 1.25rem;
-            padding: 0.5rem;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: auto;
-        }
-    </style>
-    """, unsafe_allow_html=True,
-)
-
-# Add footer to the bottom of the page
-footer = """
-    <div class="footer">
-        &copy; Kansas Chapter of Triangle Fraternity
-    </div>
-    """
-st.markdown(footer, unsafe_allow_html=True)
 
 
