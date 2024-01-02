@@ -23,23 +23,12 @@ st.markdown("""
             height: 5rem;
             background-image: url("https://images.squarespace-cdn.com/content/v1/5edab77f1d34342bd8d942b6/6abeefe1-f357-4992-aa59-dcfe74c726b1/Logotype-Horiz.png?format=1500w");
             background-repeat: no-repeat;
-            background-position: left 2rem center;  /* Adjusted position */
-            background-size: auto 4rem;  /* Auto width, 4rem height */
+            background-position: left 2rem center;
+            background-size: auto 4rem;
         }
     </style>
     """, unsafe_allow_html=True,
 )
-
-# Custom CSS to center the title
-st.markdown("""
-    <style>
-        .stHeadingContainer {
-            text-align: center;
-        }
-    </style>
-    """, unsafe_allow_html=True,
-)
-st.header("Chat with the KU Triangle ChatBot", divider='gray')
 
 # Custom CSS for the buttons
 st.markdown("""
@@ -55,10 +44,22 @@ st.markdown("""
     """, unsafe_allow_html=True,
 )
 
+# Custom CSS for the sidebar
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
             text-align: center;
+        }
+    </style>
+    """, unsafe_allow_html=True,
+)
+
+# Custom CSS for the chat input
+st.markdown("""
+    <style>
+        [data-testid="stChatInput"] {
+            background-color: #0e3745;
+            color: #FFFFFF;
         }
     </style>
     """, unsafe_allow_html=True,
@@ -75,8 +76,11 @@ with st.sidebar:
     st.link_button(":moneybag: Donate", "https://www.paypal.com/donate/?hosted_button_id=AGBB3YBDR73NW")
     st.markdown("&copy; Kansas Chapter of Triangle Fraternity")
 
+# Header
+st.header("KU Triangle ChatBot &#916;")
+
 # Disclaimer and instructions
-st.markdown("**Disclaimer:** *This chatbot provides responses based on its accessible resources and knowledge base, which may not encompass all details relevant to your inquiry. If you receive an incomplete response or no information related to your question, it may be a result of the chatbot's current knowledge limitations. In such instances, try rewording or elaborating on your question for more precise assistance. For complex inquiries or topics beyond the chatbot's capacity, please consult the chapter's current Recruitment Chair for further guidance.*")
+st.markdown("**Disclaimer:** *This chatbot responds based on its current knowledge, which might not cover all aspects of your inquiry. If a response seems incomplete or unrelated, consider rephrasing your question for clarity. For complex topics beyond the chatbot's scope, please refer to the Recruitment Chair.*")
          
 # Initialize chat messages history
 if "messages" not in st.session_state.keys():
